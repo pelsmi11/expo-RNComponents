@@ -7,48 +7,40 @@ import {
   NativeModules,
   FlatList,
 } from "react-native";
-import Ionicons from "@expo/vector-icons/Ionicons";
-
-interface MenuItem {
-  name: string;
-  icon: string;
-  components: string;
-}
-
-const menuItems: MenuItem[] = [
-  {
-    name: "Animation 101",
-    icon: "cube-outline",
-    components: "Animation101Screen",
-  },
-];
+import { styles } from "../theme/appTheme";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { FlatListMenuItem } from "../components/FlatListMenuItem";
+import { menuItems } from "../data";
+import { HeaderTitle } from "../components";
 
 export const HomeScreen = () => {
-  const { StatusBarManager } = NativeModules;
-
-  const rednerMenuItem = (menuItem: MenuItem) => {
+  const itemSeparator = () => {
     return (
-      <View>
-        <Text>{menuItem.name}</Text>
-      </View>
+      <View
+        style={{
+          borderBottomWidth: 1,
+          opacity: 0.4,
+          marginVertical: 8,
+        }}
+      />
     );
   };
 
   return (
     <View
       style={{
-        paddingTop: Platform.OS === "android" ? StatusBarManager.HEIGHT : 0,
-        backgroundColor: "red",
+        // paddingTop: Platform.OS === "android" ? StatusBarManager.HEIGHT : 0,
+        ...styles.globalMargin,
         flex: 1,
       }}
     >
-      <SafeAreaView>
-        <FlatList
-          data={menuItems}
-          renderItem={({ item }) => rednerMenuItem(item)}
-          keyExtractor={(item) => item.name}
-        />
-      </SafeAreaView>
+      <FlatList
+        data={menuItems}
+        renderItem={({ item }) => <FlatListMenuItem menuItem={item} />}
+        keyExtractor={(item) => item.name}
+        ListHeaderComponent={() => <HeaderTitle title="Opciones de Menú" />}
+        ItemSeparatorComponent={itemSeparator}
+      />
     </View>
   );
 };
