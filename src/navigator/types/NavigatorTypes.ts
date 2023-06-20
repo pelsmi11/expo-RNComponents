@@ -4,4 +4,5 @@ export type RootStackParamList = {
   Animation102Screen: undefined; // Otro ejemplo de parámetros opcionales
   SwitchScreen: undefined; // Otro ejemplo de parámetros opcionales
   AlertScreen: undefined;
+  TextInputScreen: undefined;
 };

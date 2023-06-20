@@ -7,6 +7,7 @@ import {
   SwitchScreen,
 } from "../screens";
 import { RootStackParamList } from "./types";
+import { TextInputScreen } from "../screens/TextInputScreen";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -22,6 +23,7 @@ export const Navigator = () => {
       <Stack.Screen name="Animation102Screen" component={Animation102Screen} />
       <Stack.Screen name="SwitchScreen" component={SwitchScreen} />
       <Stack.Screen name="AlertScreen" component={AlertScreen} />
+      <Stack.Screen name="TextInputScreen" component={TextInputScreen} />
     </Stack.Navigator>
   );
 };
