@@ -6,19 +6,27 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
       "env": {
         "API_URL": "https://api.staging.com",
-        "ENABLE_HIDDEN_FEATURES": 1
+        "ENABLE_HIDDEN_FEATURES": "1",
+        "TEST_ENV": "development"
       },
       "ios": {
         "resourceClass": "m-medium"
       }
     },
     "preview": {
+      "android": {
+        "buildType": "apk"
+      },
       "distribution": "internal",
       "env": {
         "API_URL": "https://api.staging.com",
-        "ENABLE_HIDDEN_FEATURES": 1
+        "ENABLE_HIDDEN_FEATURES": "1",
+        "TEST_ENV": "preview"
       },
       "ios": {
         "resourceClass": "m-medium"
@@ -27,7 +35,8 @@
     "production": {
       "env": {
         "API_URL": "https://api.production.com",
-        "ENABLE_HIDDEN_FEATURES": 0
+        "ENABLE_HIDDEN_FEATURES": "0",
+        "TEST_ENV": "production"
       },
       "ios": {
         "resourceClass": "m-medium"
