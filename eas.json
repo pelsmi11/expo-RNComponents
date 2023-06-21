@@ -6,17 +6,29 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal",
+      "env": {
+        "API_URL": "https://api.staging.com",
+        "ENABLE_HIDDEN_FEATURES": 1
+      },
       "ios": {
         "resourceClass": "m-medium"
       }
     },
     "preview": {
       "distribution": "internal",
+      "env": {
+        "API_URL": "https://api.staging.com",
+        "ENABLE_HIDDEN_FEATURES": 1
+      },
       "ios": {
         "resourceClass": "m-medium"
       }
     },
     "production": {
+      "env": {
+        "API_URL": "https://api.production.com",
+        "ENABLE_HIDDEN_FEATURES": 0
+      },
       "ios": {
         "resourceClass": "m-medium"
       }

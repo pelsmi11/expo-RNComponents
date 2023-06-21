@@ -5,4 +5,6 @@ export type RootStackParamList = {
   SwitchScreen: undefined; // Otro ejemplo de parámetros opcionales
   AlertScreen: undefined;
   TextInputScreen: undefined;
+  PullToRefreshScreen: undefined;
+  EnvScreen: undefined;
 };
