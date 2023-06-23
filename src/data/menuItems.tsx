@@ -36,4 +36,9 @@ export const menuItems: MenuItem[] = [
     icon: "document",
     component: "EnvScreen",
   },
+  {
+    name: "Section List",
+    icon: "list-outline",
+    component: "CustomSectionListScreen",
+  },
 ];

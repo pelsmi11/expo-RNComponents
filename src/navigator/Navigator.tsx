@@ -3,6 +3,7 @@ import {
   AlertScreen,
   Animation101Screen,
   Animation102Screen,
+  CustomSectionListScreen,
   EnvScreen,
   HomeScreen,
   PullToRefreshScreen,
@@ -34,6 +35,10 @@ export const Navigator = () => {
         component={PullToRefreshScreen}
       />
       <Stack.Screen name="EnvScreen" component={EnvScreen} />
+      <Stack.Screen
+        name="CustomSectionListScreen"
+        component={CustomSectionListScreen}
+      />
     </Stack.Navigator>
   );
 };

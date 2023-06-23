@@ -7,4 +7,5 @@ export type RootStackParamList = {
   TextInputScreen: undefined;
   PullToRefreshScreen: undefined;
   EnvScreen: undefined;
+  CustomSectionListScreen: undefined;
 };
