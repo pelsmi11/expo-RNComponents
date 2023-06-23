@@ -10,3 +10,4 @@ export * from "./TextInputScreen";
 export * from "./CustomSectionListScreen";
 export * from "./ModalScreen";
 export * from "./InfiniteScrollScreen";
+export * from "./SlidesScreen";
