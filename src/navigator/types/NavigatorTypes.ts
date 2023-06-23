@@ -9,4 +9,5 @@ export type RootStackParamList = {
   EnvScreen: undefined;
   CustomSectionListScreen: undefined;
   ModalScreen: undefined;
+  InfiniteScrollScreen: undefined;
 };
