@@ -8,4 +8,5 @@ export type RootStackParamList = {
   PullToRefreshScreen: undefined;
   EnvScreen: undefined;
   CustomSectionListScreen: undefined;
+  ModalScreen: undefined;
 };

@@ -6,6 +6,7 @@ import {
   CustomSectionListScreen,
   EnvScreen,
   HomeScreen,
+  ModalScreen,
   PullToRefreshScreen,
   SwitchScreen,
   TextInputScreen,
@@ -39,6 +40,7 @@ export const Navigator = () => {
         name="CustomSectionListScreen"
         component={CustomSectionListScreen}
       />
+      <Stack.Screen name="ModalScreen" component={ModalScreen} />
     </Stack.Navigator>
   );
 };
