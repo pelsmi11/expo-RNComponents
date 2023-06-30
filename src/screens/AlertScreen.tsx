@@ -4,6 +4,7 @@ import { HeaderTitle } from "../components";
 import { styles } from "../theme/appTheme";
 import Dialog from "react-native-dialog"; //expo
 import { useState } from "react";
+import { useThemeContext } from "../hooks";
 
 export const AlertScreen = () => {
   const [dialogVisible, setDialogVisible] = useState(false);
@@ -74,16 +75,52 @@ export const AlertScreen = () => {
     );
   };
 
+  const {
+    theme: { colors, dividerColor, dark },
+  } = useThemeContext();
+
   return (
     <View style={styles.globalMargin}>
       <HeaderTitle title="Alerts" />
       <Button title="Motrar Alerta" onPress={showAlert} />
       <View style={{ height: 10 }} />
+      <Text
+        style={{
+          fontSize: 18,
+          color: colors.text,
+          textAlign: "center",
+          marginBottom: 8,
+        }}
+      >
+        Solo en IOS
+      </Text>
       <Button title="Motrar Prompt" onPress={showPrompt} />
       <View style={{ height: 10 }} />
+      <Text
+        style={{
+          fontSize: 18,
+          color: colors.text,
+          textAlign: "center",
+          marginBottom: 8,
+        }}
+      >
+        Paquete de terceros
+      </Text>
       <Button title="Motrar Dialog" onPress={showDialog} />
-      <Dialog.Container visible={dialogVisible}>
-        <Dialog.Title>Account delete</Dialog.Title>
+      <Dialog.Container
+        visible={dialogVisible}
+        contentStyle={{
+          backgroundColor: colors.background,
+          borderWidth: Platform.OS === "android" ? 2 : 0,
+          borderColor: colors.text,
+        }}
+      >
+        <Dialog.Title
+        // selectionColor={"black"}
+        // style={{ color: dark ? "black" : "white" }}
+        >
+          Account delete
+        </Dialog.Title>
         <Dialog.Input />
         <Dialog.Description>
           Do you want to delete this account? You cannot undo this action.

@@ -10,7 +10,7 @@ import {
   StyleProp,
   View,
 } from "react-native";
-import { useAnimation } from "../hooks";
+import { useAnimation, useThemeContext } from "../hooks";
 
 interface Props {
   uri: string;
@@ -20,6 +20,9 @@ interface Props {
 export const FadeInImage: FC<Props> = ({ uri, style }) => {
   const { opacity, fadeIn } = useAnimation();
   const [isLoading, setIsLoading] = useState(true);
+  const {
+    theme: { colors, dividerColor, dark },
+  } = useThemeContext();
   return (
     <View
       style={{
@@ -30,7 +33,7 @@ export const FadeInImage: FC<Props> = ({ uri, style }) => {
       {isLoading && (
         <ActivityIndicator
           style={{ position: "absolute" }}
-          color="#5856D6"
+          color={colors.primary}
           size={30}
         />
       )}

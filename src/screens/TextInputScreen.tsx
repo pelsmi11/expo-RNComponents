@@ -13,7 +13,7 @@ import {
 import { CustomSwitch, CustomSwitchNew, HeaderTitle } from "../components";
 import { styles as globalStyle } from "../theme/appTheme";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { useForm } from "../hooks";
+import { useForm, useThemeContext } from "../hooks";
 import { useState } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -28,6 +28,9 @@ export const TextInputScreen = () => {
     isSubscribed: false,
   });
   //   const toggleSwitch = () => onChange(!isSubscribed, "isSubscribed");
+  const {
+    theme: { colors, dividerColor },
+  } = useThemeContext();
   return (
     <KeyboardAvoidingView
       style={{
@@ -40,19 +43,29 @@ export const TextInputScreen = () => {
         <View style={globalStyle.globalMargin}>
           <HeaderTitle title="Text Input" />
           <TextInput
-            style={styles.inputStyle}
+            style={{
+              ...styles.inputStyle,
+              borderColor: colors.text,
+              color: colors.text,
+            }}
             placeholder="Ingrese su nombre"
             autoCorrect={false}
             autoCapitalize="words"
             onChangeText={(value) => onChange(value, "name")}
+            placeholderTextColor={dividerColor}
           />
           <TextInput
-            style={styles.inputStyle}
+            style={{
+              ...styles.inputStyle,
+              borderColor: colors.text,
+              color: colors.text,
+            }}
             placeholder="Ingrese su email"
             autoCorrect={false}
             autoCapitalize="none"
             onChangeText={(value) => onChange(value, "email")}
             keyboardType="email-address"
+            placeholderTextColor={dividerColor}
           />
           <View style={styles.switchRow}>
             <Text style={styles.switchText}>isSubscribed</Text>
@@ -65,10 +78,15 @@ export const TextInputScreen = () => {
           <HeaderTitle title={JSON.stringify(form, null, 5)} />
           <HeaderTitle title={JSON.stringify(form, null, 5)} />
           <TextInput
-            style={styles.inputStyle}
+            style={{
+              ...styles.inputStyle,
+              borderColor: colors.text,
+              color: colors.text,
+            }}
             placeholder="Ingrese su telefono"
             onChangeText={(value) => onChange(value, "phone")}
             keyboardType="phone-pad"
+            placeholderTextColor={dividerColor}
           />
           <View style={{ height: 100 }} />
         </View>

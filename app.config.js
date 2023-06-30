@@ -4,10 +4,18 @@ export default {
   expo: {
     name: "RNComponents",
     slug: "RNComponents",
+
+    updates: {
+      url: "https://u.expo.dev/f76a9696-dc85-4387-aff0-61a32877fdc9",
+    },
+
+    runtimeVersion: {
+      policy: "sdkVersion",
+    },
     version: "1.0.0",
     orientation: "portrait",
     icon: "./assets/icon.png",
-    userInterfaceStyle: "light",
+    userInterfaceStyle: "automatic",
     splash: {
       image: "./assets/splash.png",
       resizeMode: "contain",

@@ -52,8 +52,13 @@ export const menuItems: MenuItem[] = [
     component: "InfiniteScrollScreen",
   },
   {
-    name: "Slides",
+    name: "Slides (No nativo)",
     icon: "flower-outline",
     component: "SlidesScreen",
+  },
+  {
+    name: "Themes",
+    icon: "flask-outline",
+    component: "ChangeThemeScreen",
   },
 ];

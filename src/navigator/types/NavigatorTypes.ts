@@ -11,4 +11,5 @@ export type RootStackParamList = {
   ModalScreen: undefined;
   InfiniteScrollScreen: undefined;
   SlidesScreen: undefined;
+  ChangeThemeScreen: undefined;
 };

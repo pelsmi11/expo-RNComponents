@@ -15,7 +15,7 @@ import Carousel, { Pagination } from "react-native-snap-carousel";
 import { Slide, SlideShowData } from "../data";
 import { FC, useRef, useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { useAnimation } from "../hooks";
+import { useAnimation, useThemeContext } from "../hooks";
 import { StackScreenProps } from "@react-navigation/stack";
 
 const { StatusBarManager } = NativeModules;
@@ -30,12 +30,16 @@ export const SlidesScreen: FC<Props> = ({ navigation }) => {
 
   const { opacity, fadeIn, fadeOut } = useAnimation();
 
+  const {
+    theme: { colors, dividerColor, dark },
+  } = useThemeContext();
+
   const renderItem = (item: Slide) => {
     return (
       <View
         style={{
           flex: 1,
-          backgroundColor: "white",
+          backgroundColor: colors.background,
           borderRadius: 5,
           padding: 40,
           justifyContent: "center",
@@ -43,10 +47,14 @@ export const SlidesScreen: FC<Props> = ({ navigation }) => {
       >
         <Image
           source={item.img}
-          style={{ width: 350, height: 400, resizeMode: "center" }}
+          style={{ width: "100%", height: 400, resizeMode: "contain" }}
         />
-        <Text style={styles.title}>{item.title}</Text>
-        <Text style={styles.subTitle}>{item.desc}</Text>
+        <Text style={{ ...styles.title, color: colors.primary }}>
+          {item.title}
+        </Text>
+        <Text style={{ ...styles.subTitle, color: colors.text }}>
+          {item.desc}
+        </Text>
       </View>
     );
   };
@@ -84,14 +92,14 @@ export const SlidesScreen: FC<Props> = ({ navigation }) => {
             width: 10,
             height: 10,
             borderRadius: 10,
-            backgroundColor: "#5856D6",
+            backgroundColor: colors.primary,
           }}
         />
         <Animated.View style={{ opacity }}>
           <TouchableOpacity
             style={{
               flexDirection: "row",
-              backgroundColor: "#5856D6",
+              backgroundColor: colors.primary,
               width: 140,
               height: 50,
               borderRadius: 10,

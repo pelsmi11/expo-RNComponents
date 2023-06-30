@@ -3,6 +3,7 @@ import { HeaderTitle } from "../components";
 import { styles } from "../theme/appTheme";
 import { useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useThemeContext } from "../hooks";
 
 export const PullToRefreshScreen = () => {
   const [refreshing, setRefreshing] = useState(false);
@@ -14,6 +15,9 @@ export const PullToRefreshScreen = () => {
       setData("hola mundo");
     }, 2000);
   };
+  const {
+    theme: { colors, dividerColor, dark },
+  } = useThemeContext();
   return (
     <ScrollView
       refreshControl={
@@ -21,12 +25,12 @@ export const PullToRefreshScreen = () => {
           refreshing={refreshing}
           onRefresh={onRefresh}
           progressViewOffset={10}
-          progressBackgroundColor={"#5856D6"}
-          colors={["white", "red", "gray"]}
-          style={{ backgroundColor: "#5856D6" }}
-          tintColor={"white"}
+          progressBackgroundColor={dividerColor}
+          colors={[colors.text]}
+          // style={{ backgroundColor: "#5856D6" }}
+          tintColor={dark ? "#FFFFFF" : "#000"}
           title="refreshing"
-          titleColor={"white"}
+          // titleColor={"white"}
         />
       }
     >

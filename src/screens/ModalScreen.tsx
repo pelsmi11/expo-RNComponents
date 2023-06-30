@@ -2,9 +2,13 @@ import { Button, Modal, Text, View } from "react-native";
 import { styles } from "../theme/appTheme";
 import { HeaderTitle } from "../components";
 import { useState } from "react";
+import { useThemeContext } from "../hooks";
 
 export const ModalScreen = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const {
+    theme: { colors, dividerColor, dark },
+  } = useThemeContext();
   return (
     <View style={styles.globalMargin}>
       <HeaderTitle title="Modal Screen" />

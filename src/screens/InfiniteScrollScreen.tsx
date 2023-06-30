@@ -1,6 +1,7 @@
 import { ActivityIndicator, FlatList, StyleSheet, View } from "react-native";
 import { FadeInImage, HeaderTitle } from "../components";
 import { useState } from "react";
+import { useThemeContext } from "../hooks";
 
 export const InfiniteScrollScreen = () => {
   const [numbers, setNumbers] = useState([0, 1, 2, 3, 4, 5]);
@@ -28,6 +29,9 @@ export const InfiniteScrollScreen = () => {
       />
     );
   };
+  const {
+    theme: { colors, dividerColor, dark },
+  } = useThemeContext();
   return (
     <View style={{ flex: 1 }}>
       <FlatList
@@ -50,7 +54,7 @@ export const InfiniteScrollScreen = () => {
               alignItems: "center",
             }}
           >
-            <ActivityIndicator size={30} color={"#5856D6"} />
+            <ActivityIndicator size={30} color={colors.primary} />
           </View>
         }
       />

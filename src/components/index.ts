@@ -4,3 +4,4 @@ export * from "./CustomSwitch";
 export * from "./CustomSwitchNew";
 export * from "./ItemSeparator";
 export * from "./FadeInImage";
+export * from "./AppState";
